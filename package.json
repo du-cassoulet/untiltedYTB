@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "dotenv": "^8.2.0"
+  },
+  "name": "untilted-bot",
+  "version": "1.0.0",
+  "description": "Youtube developement serie",
+  "main": "index.js",
+  "scripts": {
+    "test": "nope"
+  },
+  "author": "DuCassoulet",
+  "license": "ISC"
+}
