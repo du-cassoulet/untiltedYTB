@@ -5,23 +5,29 @@ function random(min,max){
 };
 module.exports.run=async(client,message)=>{
     const emojis=["▫️","🟦","⬛","🟡","🔴"];
-    var pacmanPos={x:6,y:4};
+    var pacmanPos={x:6,y:3};
     var ghostPos=[
-        {x:1,y:1,under:emojis[0]},
-        {x:11,y:1,under:emojis[0]},
-        {x:1,y:7,under:emojis[0]},
-        {x:11,y:7,under:emojis[0]}
+        {x:2,y:3,under:emojis[0]},
+        {x:10,y:3,under:emojis[0]},
+        {x:2,y:11,under:emojis[0]},
+        {x:10,y:11,under:emojis[0]}
     ];
     var score=0;
     var map=[
         [emojis[1],emojis[1],emojis[1],emojis[1],emojis[1],emojis[1],emojis[1],emojis[1],emojis[1],emojis[1],emojis[1],emojis[1],emojis[1]],
         [emojis[1],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[1]],
-        [emojis[1],emojis[0],emojis[1],emojis[1],emojis[0],emojis[0],emojis[1],emojis[0],emojis[0],emojis[1],emojis[1],emojis[0],emojis[1]],
-        [emojis[1],emojis[0],emojis[0],emojis[0],emojis[0],emojis[1],emojis[0],emojis[1],emojis[0],emojis[0],emojis[0],emojis[0],emojis[1]],
-        [emojis[1],emojis[0],emojis[0],emojis[1],emojis[1],emojis[0],emojis[0],emojis[0],emojis[1],emojis[1],emojis[0],emojis[0],emojis[1]],
+        [emojis[1],emojis[0],emojis[1],emojis[1],emojis[0],emojis[1],emojis[1],emojis[1],emojis[0],emojis[1],emojis[1],emojis[0],emojis[1]],
+        [emojis[1],emojis[0],emojis[0],emojis[1],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[1],emojis[0],emojis[0],emojis[1]],
+        [emojis[1],emojis[0],emojis[1],emojis[1],emojis[0],emojis[1],emojis[0],emojis[1],emojis[0],emojis[1],emojis[1],emojis[0],emojis[1]],
+        [emojis[1],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[1]],
+        [emojis[1],emojis[0],emojis[1],emojis[0],emojis[1],emojis[0],emojis[1],emojis[0],emojis[1],emojis[0],emojis[1],emojis[0],emojis[1]],
+        [emojis[1],emojis[0],emojis[1],emojis[1],emojis[1],emojis[0],emojis[1],emojis[0],emojis[1],emojis[1],emojis[1],emojis[0],emojis[1]],
+        [emojis[1],emojis[0],emojis[1],emojis[0],emojis[1],emojis[0],emojis[1],emojis[0],emojis[1],emojis[0],emojis[1],emojis[0],emojis[1]],
         [emojis[1],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[1]],
         [emojis[1],emojis[0],emojis[1],emojis[1],emojis[0],emojis[1],emojis[0],emojis[1],emojis[0],emojis[1],emojis[1],emojis[0],emojis[1]],
-        [emojis[1],emojis[0],emojis[0],emojis[0],emojis[0],emojis[1],emojis[0],emojis[1],emojis[0],emojis[0],emojis[0],emojis[0],emojis[1]],
+        [emojis[1],emojis[0],emojis[0],emojis[1],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[1],emojis[0],emojis[0],emojis[1]],
+        [emojis[1],emojis[0],emojis[1],emojis[1],emojis[0],emojis[1],emojis[1],emojis[1],emojis[0],emojis[1],emojis[1],emojis[0],emojis[1]],
+        [emojis[1],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[0],emojis[1]],
         [emojis[1],emojis[1],emojis[1],emojis[1],emojis[1],emojis[1],emojis[1],emojis[1],emojis[1],emojis[1],emojis[1],emojis[1],emojis[1]]
     ];
     var gameOver=false;
